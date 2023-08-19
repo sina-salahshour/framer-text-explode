@@ -72,8 +72,8 @@ function ScrollChar({
   const textY = useTransform(scrollYProgress, [1, 0.9, 0], [0, 0, x]);
   const textRotate = useTransform(
     scrollYProgress,
-    [1, 0],
-    ["0deg", `${rotation}deg`]
+    [1, 0.9, 0],
+    ["0deg", "0deg", `${rotation}deg`]
   );
   const textScale = useTransform(scrollYProgress, [1, 0.9, 0], [1, 1, scale]);
   const textOpacity = useTransform(scrollYProgress, [1, 0.9, 0], [1, 1, 0]);

@@ -11,8 +11,8 @@ export default function Home() {
   );
 
   return (
-    <motion.div className="w-full h-[500dvh] bg-gradient-to-t">
-      <div className="text-7xl font-semibold w-full h-screen flex justify-center items-center sticky top-0">
+    <motion.div className="w-full h-[500dvh]">
+      <div className="text-7xl font-semibold w-full h-[100dvh] flex justify-center items-center sticky top-0 overflow-hidden">
         <div className="absolute text-opacity-20 text-white">HELLO</div>
         <ScrollChar x={-100} rotation={100} scale={4}>
           H

@@ -4,6 +4,12 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { PropsWithChildren } from "react";
 
 export default function Home() {
+  const { scrollYProgress } = useScroll();
+  const buttonOpacity = useTransform(scrollYProgress, [0, 0.2, 1], [1, 0, 0]);
+  const buttonPointerEvents = useTransform(scrollYProgress, (latest) =>
+    latest < 0.2 ? "auto" : "none"
+  );
+
   return (
     <motion.div className="w-full h-[500dvh] bg-gradient-to-t">
       <div className="text-7xl font-semibold w-full h-screen flex justify-center items-center sticky top-0">
@@ -21,6 +27,18 @@ export default function Home() {
         <ScrollChar x={-50} y={-50} scale={0.2}>
           O
         </ScrollChar>
+        <motion.button
+          aria-label="scroll down"
+          title="scroll down"
+          style={{
+            opacity: buttonOpacity,
+            pointerEvents: buttonPointerEvents,
+          }}
+          className="absolute bottom-0 animate-bounce"
+          onClick={() => window.scrollTo({ top: 2000, behavior: "smooth" })}
+        >
+          <div className="rotate-90">&gt;</div>
+        </motion.button>
       </div>
     </motion.div>
   );

@@ -65,18 +65,18 @@ function ScrollChar({
   });
   const textBlur = useTransform(
     scrollYProgress,
-    [1, 0],
-    ["blur(0px)", "blur(10px)"]
+    [1, 0.9, 0],
+    ["blur(0px)", "blur(0px)", "blur(10px)"]
   );
-  const textX = useTransform(scrollYProgress, [1, 0], [0, y]);
-  const textY = useTransform(scrollYProgress, [1, 0], [0, x]);
+  const textX = useTransform(scrollYProgress, [1, 0.9, 0], [0, 0, y]);
+  const textY = useTransform(scrollYProgress, [1, 0.9, 0], [0, 0, x]);
   const textRotate = useTransform(
     scrollYProgress,
     [1, 0],
     ["0deg", `${rotation}deg`]
   );
-  const textScale = useTransform(scrollYProgress, [1, 0], [1, scale]);
-  const textOpacity = useTransform(scrollYProgress, [1, 0], [1, 0]);
+  const textScale = useTransform(scrollYProgress, [1, 0.9, 0], [1, 1, scale]);
+  const textOpacity = useTransform(scrollYProgress, [1, 0.9, 0], [1, 1, 0]);
   return (
     <motion.span
       style={{
